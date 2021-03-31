@@ -61,7 +61,7 @@ def receiveOnePing(mySocket, ID, timeout, destAddr):
 
         if packet_id == ID:
             bytes = struct.calcsize("d")
-            time_sent = struct.unpack("d", recPacket[28:28]+bytes)[0]
+            time_sent = struct.unpack("d", recPacket[28:28+bytes])[0]
             ret_delay = timeReceived-time_sent
             return ret_delay
         # Fill in end
